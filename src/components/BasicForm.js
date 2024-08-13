@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 
 const BasicForm = () => {
-  const formik = useFormik({
+  const {values,handleBlur,handleChange} = useFormik({
     initialValues: {
       email: "",
       age: "",
@@ -10,15 +10,13 @@ const BasicForm = () => {
     },
   });
 
-  console.log(formik);
-
   return (
     <form autoComplete="off">
       <label htmlFor="email">Email</label>
       <input
-        value={formik.values.email}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        value={values.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
         id="email"
         name="email"
         type="email"
@@ -31,16 +29,16 @@ const BasicForm = () => {
         name="age"
         type="number"
         placeholder="Enter your age"
-        value={formik.values.age}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        value={values.age}
+        onChange={handleChange}
+        onBlur={handleBlur}
       />
 
       <label htmlFor="password">Password</label>
       <input
-        value={formik.values.password}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        value={values.password}
+        onChange={handleChange}
+        onBlur={handleBlur}
         id="password"
         name="password"
         type="password"
@@ -53,9 +51,9 @@ const BasicForm = () => {
         name="confirmPasswords"
         type="password"
         placeholder="Confirm Password"
-        onChange={formik.handleChange}
-        value={formik.values.confirmPasswords}
-        onBlur={formik.handleBlur}
+        onChange={handleChange}
+        value={values.confirmPasswords}
+        onBlur={handleBlur}
       />
     </form>
   );
