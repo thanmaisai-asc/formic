@@ -6,7 +6,7 @@ const onSubmit = () => {
 }
 
 const BasicForm = () => {
-  const {values,errors,handleBlur,handleChange, handleSubmit} = useFormik({
+  const {values,errors,touched,handleBlur,handleChange, handleSubmit} = useFormik({
     initialValues: {
       email: "",
       age: "",
@@ -30,6 +30,7 @@ const BasicForm = () => {
         name="email"
         type="email"
         placeholder="Enter your email"
+        className={errors.email && touched.email ? "input-error" : ""}
       />
 
       <label htmlFor="age">Age</label>
@@ -41,6 +42,7 @@ const BasicForm = () => {
         value={values.age}
         onChange={handleChange}
         onBlur={handleBlur}
+        className={errors.age && touched.age ? "input-error" : ""}
       />
 
       <label htmlFor="password">Password</label>
@@ -52,6 +54,7 @@ const BasicForm = () => {
         name="password"
         type="password"
         placeholder="Enter your password"
+        className={errors.email && touched.email ? "input-error" : ""}
       />
 
       <label htmlFor="confirmPasswords">Confirm Passwords</label>
@@ -63,6 +66,7 @@ const BasicForm = () => {
         onChange={handleChange}
         value={values.confirmPasswords}
         onBlur={handleBlur}
+        className={errors.confirmPasswords && touched.confirmPasswords ? "input-error" : ""}
       />
     </form>
   );
