@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import basicSchema from "../schema";
 
 const BasicForm = () => {
   const {values,handleBlur,handleChange} = useFormik({
@@ -8,6 +9,7 @@ const BasicForm = () => {
       password: "",
       confirmPasswords: "",
     },
+    validationSchema: basicSchema,
   });
 
   return (
