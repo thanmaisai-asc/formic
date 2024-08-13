@@ -54,7 +54,7 @@ const BasicForm = () => {
         name="password"
         type="password"
         placeholder="Enter your password"
-        className={errors.email && touched.email ? "input-error" : ""}
+        className={errors.password && touched.password ? "input-error" : ""}
       />
 
       <label htmlFor="confirmPasswords">Confirm Passwords</label>
