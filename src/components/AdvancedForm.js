@@ -1,9 +1,23 @@
+import { Formik } from "formik";
+
 const AdvancedForm = () => {
     return (
-      <form autoComplete="off">
-        <label htmlFor="username">Username</label>
-        <input id="username" type="text" placeholder="Enter your username" />
-      </form>
+      <Formik
+       initialValues={{ name: 'Thanmai' }}
+     >
+       {props => (
+         <form onSubmit={props.handleSubmit}>
+           <input
+             type="text"
+             onChange={props.handleChange}
+             onBlur={props.handleBlur}
+             value={props.values.name}
+             name="name"
+           />
+           <button type="submit">Submit</button>
+         </form>
+       )}
+     </Formik>
     );
   };
   export default AdvancedForm;
